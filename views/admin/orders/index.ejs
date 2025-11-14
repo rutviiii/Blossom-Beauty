@@ -1,0 +1,57 @@
+<h1 class="page-title">📦 Manage Orders</h1>
+
+<% if (orders.length > 0) { %>
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>User</th>
+        <th>Products</th>
+        <th>Total (₹)</th>
+        <th>Shipping Info</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% orders.forEach(order => { %>
+        <tr>
+          <td><%= order._id %></td>
+          <td><%= order.user ? order.user.username : "Deleted User" %></td>
+          <td>
+            <ul>
+              <% order.items.forEach(item => { %>
+                <li><%= item.product.name %> × <%= item.quantity %></li>
+              <% }) %>
+            </ul>
+          </td>
+          <td>₹ <%= order.totalAmount %></td>
+
+          <!-- 🆕 Shipping Info -->
+          <td>
+            <strong><%= order.shipping?.fullName %></strong><br>
+            <%= order.shipping?.address %>, <%= order.shipping?.city %><br>
+            <%= order.shipping?.state %> - <%= order.shipping?.postalCode %><br>
+            📞 <%= order.shipping?.phone %>
+          </td>
+
+          <td><%= order.status %></td>
+          <td>
+            <form action="/admin/orders/update/<%= order._id %>" method="POST">
+              <select name="status">
+                <option value="Pending" <%= order.status==="Pending"?"selected":"" %>>Pending</option>
+                <option value="Processing" <%= order.status==="Processing"?"selected":"" %>>Processing</option>
+                <option value="Shipped" <%= order.status==="Shipped"?"selected":"" %>>Shipped</option>
+                <option value="Delivered" <%= order.status==="Delivered"?"selected":"" %>>Delivered</option>
+                <option value="Cancelled" <%= order.status==="Cancelled"?"selected":"" %>>Cancelled</option>
+              </select>
+              <button type="submit" class="btn btn-primary btn-small">Update</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+<% } else { %>
+  <p>No orders found.</p>
+<% } %>

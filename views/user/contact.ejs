@@ -1,0 +1,110 @@
+<style>
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #fff0f5, #ffe6f0);
+    color: #333;
+  }
+  .contact-header {
+    background: url("https://images.unsplash.com/photo-1515378791036-0648a3ef77b2") center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  }
+  .contact-header h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    animation: fadeInDown 1s ease;
+  }
+  .contact-header p {
+    font-size: 1.2rem;
+    animation: fadeInUp 1.2s ease;
+  }
+  .contact-section {
+    padding: 60px 20px;
+  }
+  .contact-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+  .contact-card:hover {
+    transform: translateY(-10px);
+  }
+  .map-container {
+    margin-top: 40px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  }
+  .contact-info {
+    margin-top: 20px;
+  }
+  .contact-info h5 {
+    color: #ff4da6;
+    margin-bottom: 10px;
+  }
+  .form-control, .btn-submit {
+    border-radius: 12px;
+    padding: 12px;
+  }
+  .btn-submit {
+    background: #ff4da6;
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  .btn-submit:hover {
+    background: #e60073;
+    transform: scale(1.05);
+  }
+  @keyframes fadeInDown {
+    from {opacity: 0; transform: translateY(-50px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+  @keyframes fadeInUp {
+    from {opacity: 0; transform: translateY(50px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+</style>
+
+<!-- Contact Header -->
+<div class="contact-header">
+  <h1>📞 Contact Blossom Beauty</h1>
+  <p>We’d love to hear from you! Get in touch with us today💌.</p>
+</div>
+
+
+    <!-- Contact Info + Map -->
+    <div class="col-md-6">
+      <div class="contact-card">
+        <h3 class="mb-3">📍 Reach Us</h3>
+        <div class="contact-info">
+          <h5>📌 Address:</h5>
+          <p>Blossom Beauty HQ, Rajkot, Gujarat, India</p>
+          <h5>📞 Phone:</h5>
+          <p>+91 98765 43210</p>
+          <h5>📧 Email:</h5>
+          <p>support@blossombeauty.com</p>
+          <h5>🌐 Follow Us:</h5>
+          <p>
+            <a href="#" style="color:#ff4da6;">Instagram</a> | 
+            <a href="#" style="color:#ff4da6;">Facebook</a> | 
+            <a href="#" style="color:#ff4da6;">Twitter</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Map -->
+      <div class="map-container mt-4">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.749690649204!2d70.789!3d22.303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959ca1a78!2sRajkot%20City!5e0!3m2!1sen!2sin!4v123456789"
+          width="100%" height="300" style="border:0;" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</div>

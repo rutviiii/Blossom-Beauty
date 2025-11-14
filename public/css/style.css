@@ -1,0 +1,280 @@
+:root{
+  --pink:#cc3399;
+  --bg:#f7f7fb;
+  --white:#fff;
+  --text:#222;
+  --muted:#888;
+  --border:#eaeaea;
+}
+
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial; background:var(--bg); color:var(--text);}
+
+.shell{display:flex;min-height:100vh}
+.sidebar{width:240px;background:var(--pink);color:var(--white);padding:20px;display:flex;flex-direction:column;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700}
+.logo{font-size:28px}
+.brand-name{font-size:18px}
+.menu{display:flex;flex-direction:column;gap:8px}
+.menu-section{margin-top:12px;font-size:12px;opacity:.8;text-transform:uppercase}
+.menu-item{color:#fff;text-decoration:none;padding:10px;border-radius:10px}
+.menu-item:hover{background:rgba(255,255,255,.15)}
+
+.page{flex:1;display:flex;flex-direction:column}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;background:var(--white);border-bottom:1px solid var(--border)}
+.site-title{font-weight:700}
+.btn{padding:8px 12px;border:1px solid var(--border);border-radius:8px;text-decoration:none;color:var(--text);background:var(--white)}
+.btn-primary{background:var(--pink);border-color:var(--pink);color:#fff;margin-left:8px}
+.hello{color:var(--muted)}
+.content{padding:20px}
+.footer{margin-top:auto;padding:16px;text-align:center;color:var(--muted);font-size:14px}
+
+.card{background:var(--white);padding:20px;border-radius:12px;border:1px solid var(--border);max-width:420px}
+label{display:block;margin:10px 0 6px}
+input,select{width:100%;padding:10px;border:1px solid var(--border);border-radius:10px}
+button,.card .btn{cursor:pointer}
+.mt{margin-top:10px}
+.error{color:#d33;margin-top:10px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.stat-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:16px}
+.stat-title{font-size:12px;color:var(--muted);text-transform:uppercase;margin-bottom:6px}
+.stat-value a{color:var(--pink);text-decoration:none}
+
+.table{width:100%;border-collapse:collapse;background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.table th,.table td{padding:12px;border-bottom:1px solid var(--border);text-align:left}
+.table thead th{background:#fafafa;font-weight:600}
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--bg);
+  padding: 20px;
+}
+
+.auth-container .card {
+  width: 100%;
+  max-width: 400px;
+}
+
+.btn-back {
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 6px 12px;
+  background: #eee;
+  color: #333;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+.btn-back:hover {
+  background: #ddd;
+}
+
+.btn-add {
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 6px 12px;
+  background: #28a745;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+}
+.btn-add:hover {
+  background: #218838;
+}
+
+.page-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #d63384;
+}
+
+.actions {
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 15px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  margin-right: 10px;
+  transition: 0.3s ease;
+}
+
+.btn-primary {
+  background: #d63384;
+  color: white;
+}
+
+.btn-back {
+  background: #6c757d;
+  color: white;
+}
+
+.btn-small {
+  padding: 5px 10px;
+  font-size: 13px;
+}
+
+.btn-edit {
+  background: #0d6efd;
+  color: white;
+}
+
+.btn-danger {
+  background: #dc3545;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.styled-table th, .styled-table td {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.styled-table th {
+  background: #f8f9fa;
+  font-weight: bold;
+}
+
+.styled-table tr:nth-child(even) {
+  background: #fdfdfd;
+}
+
+.no-data {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+}
+
+/* Product Card Hover Effects */
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Zoom */
+.card-img-container {
+  overflow: hidden;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+.card-img-container img {
+  transition: transform 0.4s ease;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+.card-img-container:hover img {
+  transform: scale(1.1);
+}
+
+/* Button Hover */
+.add-btn {
+  transition: all 0.3s ease;
+}
+.add-btn:hover {
+  background-color: #ff4da6;
+  border-color: #ff4da6;
+  color: white;
+  box-shadow: 0 4px 12px rgba(255, 77, 166, 0.4);
+}
+
+/* Hover effects */
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+.card-img-container {
+  overflow: hidden;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+.card-img-container img {
+  transition: transform 0.4s ease;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+.card-img-container:hover img {
+  transform: scale(1.1);
+}
+.add-btn, .quick-view-btn {
+  transition: all 0.3s ease;
+}
+.add-btn:hover, .quick-view-btn:hover {
+  background-color: #ff4da6;
+  border-color: #ff4da6;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(255, 77, 166, 0.4);
+}
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fafafa;
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.08);
+}
+
+
+/* Button Highlight */
+.product-card button {
+  transition: all 0.3s ease;
+}
+
+.product-card button:hover {
+  background: #ff4081;
+  color: #fff;
+  border-color: #ff4081;
+}

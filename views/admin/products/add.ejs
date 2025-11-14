@@ -1,0 +1,25 @@
+<h1 class="page-title">➕ Add Product</h1>
+<a href="/admin/products" class="btn-back">⬅ Back</a>
+
+<form action="/admin/products/add" method="POST" enctype="multipart/form-data" class="form-container">
+  <label>Name</label>
+  <input type="text" name="name" required>
+
+  <label>Price</label>
+  <input type="number" name="price" step="0.01" required>
+
+  <label>Category</label>
+  <select name="category" required>
+    <% categories.forEach(c => { %>
+      <option value="<%= c._id %>"><%= c.name %></option>
+    <% }) %>
+  </select>
+
+  <label>Description</label>
+  <textarea name="description"></textarea>
+
+  <label>Image</label>
+  <input type="file" name="image" accept="image/*">
+
+  <button type="submit" class="btn-submit">Save</button>
+</form>

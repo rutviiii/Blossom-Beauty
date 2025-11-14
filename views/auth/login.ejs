@@ -1,0 +1,21 @@
+<div class="auth-container">
+  <form action="/login" method="POST" class="card">
+    <h2 class="page-title">Login</h2>
+
+    <label>Email</label>
+    <input type="email" name="email" required />
+
+    <label>Password</label>
+    <input type="password" name="password" required />
+
+    <button type="submit" class="btn btn-primary">Login</button>
+    <div class="mt">
+      Don’t have an account? <a href="/register">Register</a>
+    </div>
+
+    <% if (typeof error !== 'undefined' && error) { %>
+      <p class="error"><%= error %></p>
+    <% } %>
+  </form>
+</div>
+

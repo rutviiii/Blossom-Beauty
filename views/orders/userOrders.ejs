@@ -1,0 +1,61 @@
+<div class="container my-5">
+  <h2 class="page-title">📦 My Orders</h2>
+
+  <% if (orders.length > 0) { %>
+    <% orders.forEach(order => { %>
+      <div class="order-card">
+        <h4>🆔 Order ID: <a href="/orders/<%= order._id %>"><%= order._id %></a></h4>
+        <p>📅 Date: <%= order.createdAt.toDateString() %></p>
+        <p>📌 Status: <strong><%= order.status %></strong></p>
+        
+        <!-- 🆕 Shipping Information -->
+      <div class="shipping-info">
+        <h4>🚚 Shipping Details</h4>
+        <p><strong>Name:</strong> <%= order.shipping?.fullName %></p>
+        <p><strong>Address:</strong> <%= order.shipping?.address %>, <%= order.shipping?.city %>, <%= order.shipping?.state %> - <%= order.shipping?.postalCode %></p>
+        <p><strong>Phone:</strong> <%= order.shipping?.phone %></p>
+      </div>
+
+
+
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Qty</th>
+              <th>Price</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% let grandTotal = 0; %>
+            <% order.items.forEach(item => { 
+                 let total = item.product.price * item.quantity; 
+                 grandTotal += total; 
+            %>
+              <tr>
+                <td><%= item.product.name %></td>
+                <td><%= item.quantity %></td>
+                <td>₹ <%= item.product.price %></td>
+                <td>₹ <%= total %></td>
+              </tr>
+            <% }) %>
+            <tr>
+              <td colspan="3" style="text-align:right;"><strong>Grand Total:</strong></td>
+              <td><strong>₹ <%= grandTotal %></strong></td>
+            </tr>
+          </tbody>
+        </table>
+         <p class="order-total">Grand Total: <strong>₹ <%= order.totalAmount %></strong></p>
+          <!-- Status Update Form -->
+      </form>
+
+          
+
+      </div>
+      <hr/>
+    <% }) %>
+  <% } else { %>
+    <p>You haven’t placed any orders yet. <a href="/user/products">Shop Now</a></p>
+  <% } %>
+</div>

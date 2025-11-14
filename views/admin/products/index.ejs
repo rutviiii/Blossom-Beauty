@@ -1,0 +1,48 @@
+<h1 class="page-title">📦 Manage Products</h1>
+
+<div class="actions">
+  <a href="/admin" class="btn btn-back">⬅ Back to Dashboard</a>
+  <a href="/admin/products/add" class="btn btn-primary">+ Add Product</a>
+</div>
+
+<div class="table-container">
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Price (RS)</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (products.length > 0) { %>
+        <% products.forEach(p => { %>
+          <tr>
+            <td>
+              <% if (p.image) { %>
+                <img src="<%= p.image %>" alt="<%= p.name %>" width="50"/>
+              <% } else { %>
+                <span>No image</span>
+              <% } %>
+            </td>
+            <td><%= p.name %></td>
+            <td><%= p.price %> Rs.</td>
+            <td><%= p.category ? p.category.name : 'N/A' %></td>
+            <td><%= p.description %></td>
+            <td>
+              <a href="/admin/products/edit/<%= p._id %>" class="btn btn-small btn-edit">✏ Edit</a>
+              <form action="/admin/products/delete/<%= p._id %>" method="POST" style="display:inline;">
+                <button type="submit" class="btn btn-small btn-danger" onclick="return confirm('Delete this product?')">🗑 Delete</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      <% } else { %>
+        <tr><td colspan="6">No products found</td></tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,110 @@
+<h1 class="page-title">🛒 Cart</h1>
+
+<% if (cart.items.length > 0) { %>
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Price (₹)</th>
+        <th>Qty</th>
+        <th>Total</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% let grandTotal = 0; %>
+      <% cart.items.forEach(item => { %>
+        <% let total = item.product.price * item.quantity; grandTotal += total; %>
+        <tr>
+          <td><%= item.product.name %></td>
+          <td><%= item.product.price %></td>
+          <td><%= item.quantity %></td>
+          <td>₹ <%= total %></td>
+          <td>
+            <form action="/cart/remove/<%= item.product._id %>" method="POST">
+              <button type="submit" class="btn btn-danger btn-small">❌ Remove</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+      <tr>
+        <td colspan="3" style="text-align:right;font-weight:bold;">Grand Total:</td>
+        <td colspan="2"><strong>₹ <%= grandTotal %></strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+ <div class="actions">
+  <a href="/user/products" class="btn btn-back">Continue Shopping</a>
+  <a href="/orders/shipping" class="btn btn-primary">Proceed to Checkout →</a>
+</div>
+
+  
+<% } else { %>
+  
+  <div class="success-card">
+    <div class="success-icon">✅</div>
+    <h1>Your Cart is Empty.</h1>
+    <a href="/user/products" class="btn-shop">Browse products</a>
+  </div>
+<style>
+  body{
+
+     background: linear-gradient(135deg, #f9f9f9, #ffe6f0);
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .success-card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      text-align: center;
+      padding: 50px;
+      max-width: 600px;
+      width: 100%;
+      animation: fadeInUp 1s ease;
+    }
+    .success-icon {
+      font-size: 80px;
+      color: #28a745;
+      margin-bottom: 20px;
+      animation: bounce 1.5s infinite;
+    }
+    h1 {
+      font-weight: bold;
+      color: #333;
+    }
+    p {
+      font-size: 18px;
+      color: #666;
+    }
+    .btn-shop {
+      margin-top: 25px;
+      padding: 12px 30px;
+      font-size: 18px;
+      border-radius: 30px;
+      background: #ff4da6;
+      color: #fff;
+      border: none;
+      transition: 0.3s;
+    }
+    .btn-shop:hover {
+      background: #e60073;
+      transform: scale(1.05);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+  
+</style>
+
+<% } %>

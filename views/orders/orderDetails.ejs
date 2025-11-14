@@ -1,0 +1,38 @@
+<div class="container my-5">
+  <h2>📦 Order Details</h2>
+
+  <h4>Order ID: <%= order._id %></h4>
+  <p>📅 Placed on: <%= order.createdAt.toDateString() %></p>
+  <p>📌 Status: <strong><%= order.status %></strong></p>
+
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Qty</th>
+        <th>Price</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% let grandTotal = 0; %>
+      <% order.items.forEach(item => { 
+           let total = item.product.price * item.quantity; 
+           grandTotal += total; 
+      %>
+        <tr>
+          <td><%= item.product.name %></td>
+          <td><%= item.quantity %></td>
+          <td>₹ <%= item.product.price %></td>
+          <td>₹ <%= total %></td>
+        </tr>
+      <% }) %>
+      <tr>
+        <td colspan="3" style="text-align:right;"><strong>Grand Total:</strong></td>
+        <td><strong>₹ <%= grandTotal %></strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <a href="/orders/my-orders" class="btn btn-back">← Back to My Orders</a>
+</div>

@@ -1,0 +1,72 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title><%= typeof title !== 'undefined' ? title : 'Blossom Beauty' %></title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+  <div class="shell">
+    <% if (user) { %>
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="logo">🌸</div>
+          <div class="brand-name">Blossom <%= user.role === 'admin' ? 'Admin' : 'User' %></div>
+        </div>
+
+        <nav class="menu">
+          <% if (user.role === 'admin') { %>
+          <!-- Admin Sidebar -->
+          <a href="/admin" class="menu-item">Dashboard</a>
+          <a href="/admin/users" class="menu-item">Users</a>
+          <a href="/admin/categories" class="menu-item">Categories</a>
+          <a href="/admin/products" class="menu-item">Products</a>
+          <a href="/admin/orders" class="menu-item">Orders</a>
+          <% } else { %>
+          <!-- User Sidebar -->
+          
+          <a href="/user/" class="menu-item">Dashboard</a>
+          <a href="/user/products" class="menu-item">All Products</a>
+          <a href="/user/about" class="menu-item">About Us</a>
+          <a href="/user/contact" class="menu-item">Contact Us</a>
+          <a href="/cart" class="menu-item"> Cart</a>
+          <a href="/wishlist" class="menu-item">Wishlist</a>
+          
+          <% if (user) { %>
+          <a href="/orders/my-orders" class="menu-item">My Orders</a>
+          <% } %>
+
+          
+        <% } %>
+          <div class="menu-section">Account</div>
+          <a href="/logout" class="menu-item">Logout</a>
+        </nav>
+      </aside>
+
+    <% } %>
+
+    <div class="page">
+      <header class="topbar">
+        <div class="topbar-left">
+          <span class="site-title">🌸 Blossom Beauty</span>
+        </div>
+        <div class="topbar-right">
+          <% if (user) { %>
+            <span class="hello">Hello, <strong><%= user.name %></strong> (<%= user.role %>)</span>
+          <% } else { %>
+            <a href="/login" class="btn">Login</a>
+            <a href="/register" class="btn btn-primary">Register</a>
+          <% } %>
+        </div>
+      </header>
+
+      <main class="content">
+        <%- body %>
+      </main>
+
+      <footer class="footer">© <%= new Date().getFullYear() %> Blossom Beauty</footer>
+    </div>
+  </div>
+</body>
+</html>

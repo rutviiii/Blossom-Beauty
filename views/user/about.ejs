@@ -1,0 +1,100 @@
+<style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #fff0f5, #ffe6f0);
+      color: #333;
+    }
+    .about-header {
+      background: url("https://images.unsplash.com/photo-1522336572468-97b06e8ef143") center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+      border-bottom-left-radius: 60px;
+      border-bottom-right-radius: 60px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .about-header h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      animation: fadeInDown 1s ease;
+    }
+    .about-header p {
+      font-size: 1.2rem;
+      animation: fadeInUp 1.2s ease;
+    }
+    .about-section {
+      padding: 60px 20px;
+    }
+    .about-card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      padding: 30px;
+      transition: transform 0.3s ease;
+    }
+    .about-card:hover {
+      transform: translateY(-10px);
+    }
+    .icon {
+      font-size: 50px;
+      color: #ff4da6;
+      margin-bottom: 20px;
+    }
+    .team-section {
+      background: #fff5f8;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .team-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+    .team-card:hover {
+      transform: scale(1.05);
+    }
+    @keyframes fadeInDown {
+      from {opacity: 0; transform: translateY(-50px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(50px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+<div class="about-header">
+    <h1>🌸 About Blossom Beauty</h1>
+    <p>Your trusted partner in skincare, makeup & wellness</p>
+  </div>
+
+  <!-- About Section -->
+  <div class="container about-section">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="about-card text-center">
+          <div class="icon">💄</div>
+          <h4>Our Mission</h4>
+          <p>To bring you the best in beauty and skincare with quality products that inspire confidence and self-care.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="about-card text-center">
+          <div class="icon">🌿</div>
+          <h4>Our Values</h4>
+          <p>We believe in sustainability, authenticity, and providing safe, cruelty-free products for everyone.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="about-card text-center">
+          <div class="icon">🚚</div>
+          <h4>Our Promise</h4>
+          <p>Fast delivery, reliable service, and a delightful shopping experience with Blossom Beauty.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Team Section -->
+  

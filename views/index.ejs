@@ -1,0 +1,14 @@
+<div class="container my-5">
+  <h1 class="page-title">🌸 Welcome to Blossom Beauty</h1>
+  <p>Your one-stop destination for beauty & skincare products.</p>
+  
+  <div class="actions">
+    <% if (!user) { %>
+      <a href="/login" class="btn btn-primary">Login</a>
+      <a href="/register" class="btn">Register</a>
+      
+    <% } else { %>
+      <a href="/user" class="btn btn-primary">Go to Dashboard</a>
+    <% } %>
+  </div>
+</div>

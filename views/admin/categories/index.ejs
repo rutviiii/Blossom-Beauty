@@ -1,0 +1,38 @@
+<h1 class="page-title"> Manage Categories</h1>
+
+<div class="actions">
+  <a href="/admin" class="btn btn-back">⬅ Back to Dashboard</a>
+  <a href="/admin/categories/add" class="btn btn-primary">+ Add New Category</a>
+</div>
+
+<div class="table-container">
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th style="width: 180px;">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (categories.length > 0) { %>
+        <% categories.forEach(c => { %>
+          <tr>
+            <td><%= c.name %></td>
+            <td><%= c.description %></td>
+            <td>
+              <a href="/admin/categories/edit/<%= c._id %>" class="btn btn-small btn-edit">✏ Edit</a>
+              <form action="/admin/categories/delete/<%= c._id %>" method="POST" style="display:inline;">
+                <button type="submit" class="btn btn-small btn-danger" onclick="return confirm('Delete this category?')">🗑 Delete</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      <% } else { %>
+        <tr>
+          <td colspan="3" class="no-data">No categories found</td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>

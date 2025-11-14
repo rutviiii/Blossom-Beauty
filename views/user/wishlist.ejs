@@ -1,0 +1,51 @@
+<h1 class="page-title">💖 My Wishlist</h1>
+
+<% if (wishlist.products.length > 0) { %>
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Product</th>
+        <th>Price (₹)</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% wishlist.products.forEach(product => { %>
+        <tr>
+          <!-- Product Image -->
+          <td>
+            <% if (product.image) { %>
+              <img src="<%= product.image %>" alt="<%= product.name %>" style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;">
+            <% } else { %>
+              <img src="/images/no-image.png" alt="No image" style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;">
+            <% } %>
+          </td>
+
+          <!-- Product Name -->
+          <td><%= product.name %></td>
+
+          <!-- Product Price -->
+          <td>₹ <%= product.price %></td>
+
+          <!-- Actions -->
+          <td class="d-flex gap-2">
+            <!-- Add to Cart -->
+            <form action="/cart/add/<%= product._id %>" method="POST" style="display:inline;">
+              <button type="submit" class="btn btn-add btn-small">🛒 Add to Cart</button>
+            </form>
+
+            <!-- Remove from Wishlist -->
+            <form action="/wishlist/remove/<%= product._id %>" method="POST" style="display:inline;">
+              <button type="submit" class="btn btn-danger btn-small">❌ Remove</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+  <br>
+  <a href="/user/products" class="btn btn-primary">➕ Add Products</a>
+<% } else { %>
+  <p>Your wishlist is empty. <a href="/user/products">Browse products</a>.</p>
+<% } %>

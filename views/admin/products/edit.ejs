@@ -1,0 +1,28 @@
+<h1 class="page-title">✏ Edit Product</h1>
+<a href="/admin/products" class="btn-back">⬅ Back</a>
+
+<form action="/admin/products/edit/<%= product._id %>" method="POST" enctype="multipart/form-data" class="form-container">
+  <label>Name</label>
+  <input type="text" name="name" value="<%= product.name %>" required>
+
+  <label>Price</label>
+  <input type="number" name="price" step="0.01" value="<%= product.price %>" required>
+
+  <label>Category</label>
+  <select name="category" required>
+    <% categories.forEach(c => { %>
+      <option value="<%= c._id %>" <%= product.category.equals(c._id) ? 'selected' : '' %>><%= c.name %></option>
+    <% }) %>
+  </select>
+
+  <label>Description</label>
+  <textarea name="description"><%= product.description %></textarea>
+
+  <label>Image</label>
+  <% if (product.image) { %>
+    <p>Current: <img src="<%= product.image %>" width="80"></p>
+  <% } %>
+  <input type="file" name="image" accept="image/*">
+
+  <button type="submit" class="btn-submit">Update</button>
+</form>
